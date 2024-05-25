@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+   char a[100];
+   gets(a);
+    char *ch = strtok(a, ",");
+
+    printf("%s\n", ch);
+    printf("%s\n", strtok(NULL, ","));
+    printf("%s\n", strtok(NULL, ","));
+    printf("%s\n", strtok(NULL, ","));
+
+    return 0;
+}
+*/
+
+/*union Apple{
+
+    int a;
+    double b;
+    char c[20];
+}
+a1,a2;
+ void main()
+ {
+    printf("size of apple =%d", sizeof(a1));
+ }*/
+ /*#include <stdio.h>
+
+int main() {
+    int lemons_available, lemons_required;
+
+
+    printf("Enter the number of lemons available: ");
+    scanf("%d", &lemons_available);
+
+
+    printf("Enter the number of lemons required: ");
+    scanf("%d", &lemons_required);
+
+    int difference = lemons_available - lemons_required;
+    switch (difference > 0) {
+        case 1:
+            printf("There are %d extra lemons.\n", difference);
+            break;
+        case 0:
+
+            switch (difference == 0) {
+                case 1:
+                    printf("You have sufficient lemons.\n");
+                    break;
+                case 0:
+                    printf("You still need %d more lemons.\n", -difference);
+                    break;
+            }
+            break;
+    }
+
+    return 0;
+}
