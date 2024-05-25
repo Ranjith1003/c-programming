@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct Node {
+    char* data;
+    struct Node* left;
+    struct Node* right;
+} Node;
+
+Node* createNode(char* data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    if (!newNode) {
+        printf("Memory error\n");
+        return NULL;
+    }
+    newNode->data = data;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+
+void inorderTraversal(Node* root) {
+    if (root == NULL)
+        return;
+
+    inorderTraversal(root->left);
+    printf("%s ", root->data);
+    inorderTraversal(root->right);
+}
+
+void preorderTraversal(Node* root) {
+    if (root == NULL)
+        return;
+
+    printf("%s ", root->data);
+    preorderTraversal(root->left);
+    preorderTraversal(root->right);
+}
+
+void postorderTraversal(Node* root) {
+    if (root == NULL)
+        return;
+
+    postorderTraversal(root->left);
+    postorderTraversal(root->right);
+    printf("%s ", root->data);
+}
+
+int main() {
+    Node* root = createNode("ranjith");
+    root->left = createNode("chan");
+    root->right = createNode("karthi");
+    root->left->left = createNode("gukan");
+    root->left->right = createNode("reshi");
+    root->left->left->left = createNode("karan");
+    root->left->right->right = createNode("gokul");
+    root->right->left = createNode("hari");
+    root->right->right = createNode("dhina");
+    root->right->left->left = createNode("lokesh");
+    root->right->right->left = createNode("merin");
+    root->right->right->right = createNode("akash");
+
+    printf("In-order traversal: ");
+    inorderTraversal(root);
+    printf("\n");
+
+    printf("Pre-order traversal: ");
+    preorderTraversal(root);
+    printf("\n");
+
+    printf("Post-order traversal: ");
+    postorderTraversal(root);
+    printf("\n");
+
+    return 0;
+}
